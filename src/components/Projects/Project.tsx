@@ -11,7 +11,7 @@ export interface ProjectInfo {
 
 const Project = ({ props: { imgSrc, title, stack, description, siteUrl } }: { props: ProjectInfo }) => {
     return (
-        <div className='flex flex-col w-[610px] h-[770px] mb-2 p-10 shadow-lg shadow-slate-400'>
+        <div className='flex flex-col w-[590px] h-[770px] mb-2 p-10 shadow-lg shadow-slate-400'>
             <a href={siteUrl}>
                 <img src={imgSrc} alt={title} className='object-fill shadow-md rounded-md mt-2 w-[550px] h-[350px]' />
                 <h2 className='text-4xl mt-2 p-1 hover:underline underline-offset-4 decoration-blue-600'>{title}</h2>
