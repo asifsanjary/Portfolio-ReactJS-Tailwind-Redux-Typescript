@@ -36,7 +36,7 @@ const Projects = () => {
     return (
         <div className='mt-20' id='Projects'>
             <h1 className='text-5xl font-extrabold p-1 mb-2'>Projects I Worked On</h1>
-            <div className='flex flex-wrap mt-5 gap-10'>
+            <div className='flex flex-wrap mt-5 gap-5'>
                 {projectInfos.map((projectInfo, index) => {
                     return (
                         <Project key={index} props={projectInfo} />

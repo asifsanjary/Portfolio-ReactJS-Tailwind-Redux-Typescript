@@ -11,9 +11,9 @@ export interface ProjectInfo {
 
 const Project = ({ props: { imgSrc, title, stack, description, siteUrl } }: { props: ProjectInfo }) => {
     return (
-        <div className='flex flex-col w-[590px] h-[770px] mb-2 p-10 shadow-lg shadow-slate-400'>
+        <div className='flex flex-col w-[410px] h-[750px] mb-2 p-7 shadow-lg shadow-slate-400'>
             <a href={siteUrl}>
-                <img src={imgSrc} alt={title} className='object-fill shadow-md rounded-md mt-2 w-[550px] h-[350px]' />
+                <img src={imgSrc} alt={title} className='object-fill shadow-md rounded-md mt-2 w-[360px] h-[220px]' />
                 <h2 className='text-4xl mt-2 p-1 hover:underline underline-offset-4 decoration-blue-600'>{title}</h2>
             </a>
             <div className='flex flex-wrap gap-1 mt-2'>
@@ -21,7 +21,7 @@ const Project = ({ props: { imgSrc, title, stack, description, siteUrl } }: { pr
                     <ButtonStyleText key={index} item={item} />
                 ))}
             </div>
-            <pre className='text-xl p-1 mt-5 mb-3 overflow-auto'>{description}</pre>
+            <pre className='text-lg p-1 mt-5 mb-3 overflow-auto'>{description}</pre>
         </div>
     )
 }
