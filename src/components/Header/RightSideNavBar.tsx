@@ -1,4 +1,3 @@
-import React from 'react'
 import { IconType } from 'react-icons/lib'
 import { AiFillGithub, AiFillLinkedin, AiFillTwitterCircle } from 'react-icons/ai'
 import { HiOutlineMail } from 'react-icons/hi'

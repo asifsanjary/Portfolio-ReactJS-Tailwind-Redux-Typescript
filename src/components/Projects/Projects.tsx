@@ -1,8 +1,22 @@
-import React from 'react'
+import { useEffect } from 'react'
 import Project, { ProjectInfo } from './Project'
+import { useInView } from 'react-intersection-observer'
+import { useDispatch } from 'react-redux'
+import { setNewActiveNavBarItem } from '../Header/NavBarSlice'
 
 
 const Projects = () => {
+    const currentNavIndex = 1
+    const [projectsRef, projectsInView] = useInView({ threshold: 0.3 })
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (projectsInView) {
+            dispatch(setNewActiveNavBarItem(currentNavIndex))
+        }
+    }, [projectsInView, dispatch])
+
     var sampleproect = require('../../assets/sampleproect.png')
     var openTableScreenshot = require('../../assets/screenshotOpenTable.png')
     var jobsterScreenshot = require('../../assets/screenshotJobster.png')
@@ -34,7 +48,7 @@ const Projects = () => {
         }]
 
     return (
-        <div className='mt-20' id='Projects'>
+        <div className='mt-20' id='Projects' ref={projectsRef}>
             <h1 className='text-5xl font-extrabold p-1 mb-2'>Projects I Worked On</h1>
             <div className='flex flex-wrap mt-5 gap-5'>
                 {projectInfos.map((projectInfo, index) => {

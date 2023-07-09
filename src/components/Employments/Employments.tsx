@@ -1,5 +1,8 @@
-import React from 'react'
-import Employmet from './Employmet';
+import { useEffect } from 'react'
+import Employmet from './Employmet'
+import { useInView } from 'react-intersection-observer'
+import { useDispatch } from 'react-redux'
+import { setNewActiveNavBarItem } from '../Header/NavBarSlice';
 
 export interface Employment {
     employer: string;
@@ -10,6 +13,17 @@ export interface Employment {
 }
 
 const Employments = () => {
+
+    const currentNavIndex = 3
+    const [employmentsRef, employmentsInView] = useInView({ threshold: 0.3 })
+
+    const dispatch = useDispatch()
+
+    useEffect(() => {
+        if (employmentsInView) {
+            dispatch(setNewActiveNavBarItem(currentNavIndex))
+        }
+    }, [employmentsInView, dispatch])
 
     const employments: Employment[] = [
         {
@@ -37,7 +51,7 @@ const Employments = () => {
 
     return (
 
-        <div className='flex flex-col mt-20' id='Employment'>
+        <div className='flex flex-col mt-20' id='Employment' ref={employmentsRef}>
             <h1 className='text-5xl font-extrabold'>Employment History</h1>
             {
                 employments.map((employment, index) => {

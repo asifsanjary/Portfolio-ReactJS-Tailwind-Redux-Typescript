@@ -1,9 +1,13 @@
 import React from 'react'
-import { useState } from "react"
+import { useSelector, useDispatch } from 'react-redux'
+import { setNewActiveNavBarItem, selectedIndex } from './NavBarSlice'
 
 const LeftSideNavBar = () => {
+    const activeNavIndex = useSelector(selectedIndex)
+
+    const dispatch = useDispatch()
+
     const navBarItems: readonly string[] = ["Intro", "Projects", "Skills", "Employment"]
-    const [activeNavIndex, setActiveNavIndex] = useState(0)
 
     const getNavItemStyle = (index: number): string => {
         const commonStyle = "text-3xl text-center px-3 py-1 font-semibold"
@@ -13,7 +17,7 @@ const LeftSideNavBar = () => {
     }
 
     const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, navIndex: number) => {
-        setActiveNavIndex(navIndex)
+        dispatch(setNewActiveNavBarItem(navIndex))
     }
 
     return (
