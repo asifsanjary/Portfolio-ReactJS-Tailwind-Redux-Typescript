@@ -31,7 +31,7 @@ const Projects = () => {
 2. Restaurant details page with photos, menus, reviews, and reservation
 3. Restaurant Reservation based on Time Availability and Party Size
 4. Sign In and Sign Up for customer`,
-            siteUrl: "https://github.com/0sanjary/opentableclone"
+            siteUrl: "https://opentableclone.vercel.app/"
         },
         {
             imgSrc: jobsterScreenshot,
